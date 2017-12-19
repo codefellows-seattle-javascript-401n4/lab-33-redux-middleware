@@ -1,0 +1,25 @@
+.cat-nav {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.cat-nav-item {
+  display: inline-block;
+  // border-left: 1px solid black;
+  border-right: 1px solid black;
+  padding: 1em;
+  width: 10%;
+  height: 5px;
+  line-height: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.cat-item {
+  border: 1px solid black;
+  background: #fff;
+  margin: 1em;
+  padding: 1em;
+}
