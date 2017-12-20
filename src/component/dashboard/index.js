@@ -37,7 +37,7 @@ class Dashboard extends React.Component{
     return(
       <div className='dashboard'>
         <h1> welcome to goozgooz's budget helper </h1>
-        <CategoryForm onComplete={this.props.categoryCreate}/>
+        <CategoryForm id='main-form' onComplete={this.props.categoryCreate}/>
         <div className='category-wrapper'>
           {this.props.categories.map((category,i) =>
             <div key={category.id}> 
