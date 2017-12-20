@@ -1,0 +1,16 @@
+body {
+  background: #000000;
+  color: #FFFFFF;
+  font-size: 16px;
+}
+
+#cowsayWrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+
+  #cowsay {
+    //errrmmm, not sure what to do here
+  }
+}
