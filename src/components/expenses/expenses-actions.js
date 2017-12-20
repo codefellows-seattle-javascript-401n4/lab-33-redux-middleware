@@ -7,7 +7,7 @@ export const expensesCreate = (expense) => {
 
     return {
         type:"EXPENSES_ADD",
-        payload: card
+        payload: expense
     };
 
 };
@@ -15,13 +15,13 @@ export const expensesCreate = (expense) => {
 export const expensesDelete = (expense) => {
     return {
         type:"EXPENSES_DELETE",
-        payload: card
+        payload: expense
     }
 }
 
 export const expensesUpdate = (expense) => {
     return {
         type:"EXPENSES_UPDATE",
-        payload: card
+        payload: expense
     }
 }
