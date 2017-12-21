@@ -23,7 +23,7 @@ class Dashboard extends React.Component{
     });
 
     this.props.categoryCreate({
-      name: 'Anotha One',
+      name: 'Anotha One', 
       budget: 100,
     });
 
