@@ -1,7 +1,7 @@
 import uuid from 'uuid/v1';
 
 export const createExpense = (expense) => {
-
+    
     expense.id = uuid();
     expense.createDate = new Date();
 

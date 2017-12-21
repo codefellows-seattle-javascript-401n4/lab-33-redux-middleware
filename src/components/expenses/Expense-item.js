@@ -1,8 +1,7 @@
 import React from 'react';
-import Expense from '../expenses/Expense';
-import CategoryForm from './Category-form';
+import ExpenseForm from './Expense-form';
 
-class CategoryItem extends React.Component {
+class ExpenseItem extends React.Component {
 
     constructor(props) {
       super(props);
@@ -16,20 +15,21 @@ class CategoryItem extends React.Component {
 
     render() {
       return (
-        <div className="category-item">
-          <header id="categoryHeader">
-            <CategoryForm handler={this.props.handleUpdate} 
+        <div className="expense-item">
+          <header id="expenseHeader">
+            <ExpenseForm handler={this.props.handleUpdate} 
              handleDelete={this.props.handleDelete}
-             category={this.props.category} 
+             categoryBudget={this.props.categoryBudget}
+             updateBudget={this.props.updateBudget}
+             expense={this.props.expense} 
+             categoryId={this.props.categoryId}
              submitText={this.state.submitText}
              formState={this.state.formState}
              submitState={this.state.submitState}/>
           </header>
-          <Expense categoryId={this.props.category.id}
-                   categoryBudget={this.props.category.budget}/>
         </div>
       )
     }
 }
 
-export default CategoryItem;
+export default ExpenseItem;

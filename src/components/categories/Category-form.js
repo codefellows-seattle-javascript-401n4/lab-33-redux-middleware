@@ -29,8 +29,8 @@ class CategoryForm extends React.Component {
   }
 
   handleChange(e) {
-    this.formState = 'active';
-    this.submitState = 'visible'
+    // this.formState = 'active';
+    // this.submitState = 'visible'
     this.setState({[e.target.name]:(e.target.value).toUpperCase()});
   }
 
@@ -45,6 +45,7 @@ class CategoryForm extends React.Component {
           type="text"
           name="name"
           value={this.state.name}
+          required
           placeholder="category"
           onChange={this.handleChange}
           />
@@ -54,10 +55,11 @@ class CategoryForm extends React.Component {
           type="number"
           name="budget"
           value={this.state.budget}
+          required
           placeholder="$"
           onChange={this.handleChange}
         />
-        <a id='deleteButton' class={this.deleteButton} href="#" onClick={()=>this.props.handleDelete(this.props.category.id)}>X</a>
+        <a id='deleteButton' className={this.deleteButton} href="#" onClick={()=>this.props.handleDelete(this.props.category.id)}>X</a>
         </div>
         <input 
         id='categorySubmitButton' 

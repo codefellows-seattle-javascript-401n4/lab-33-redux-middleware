@@ -1,5 +1,7 @@
 @import './base';
 
+@import './vars';
+
 @import './mixins';
 
 @import './components/header',
@@ -7,4 +9,5 @@
         './components/category',
         './components/category-list',
         './components/category-item',
-        './components/category-form';
+        './components/category-form',
+        './components/expense-form';

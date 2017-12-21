@@ -16,12 +16,10 @@ class Categories extends React.Component {
 		this.state = {
 			submitText: 'Add Category'
 		}
-		
 	}
 	
   render() {
-		console.log(this.props.categories);
-    return (
+		return (
 			<div id="categoryWrapper">
 				<CategoryForm submitText={this.state.submitText} handler={this.props.handleAddCategory} />
 				<CategoryList 

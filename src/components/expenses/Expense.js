@@ -10,20 +10,28 @@ class Expense extends React.Component {
 
   constructor(props){
     super(props);
+
+    this.state = {
+			submitText: 'Add Expense'
+    }
   }
 
   render() {
+
+    let {categoryId, expenses, categoryBudget} = this.props;
+
     return (
       <div id='ExpenseWrapper'>
-       <p> Hello All!!!</p>
-        {/* <ExpenseForm/>
+        <ExpenseForm handler={this.props.createExpense}
+                     categoryId={categoryId}
+                     categoryBudget={categoryBudget}
+                     submitText={this.state.submitText}/>
         <ExpenseList
-          categoryId={this.props.categoryId}
-          expenses={this.props.expenses}
-          handleAdd={this.props.createExpense}
+          categoryId={categoryId}
+          expenses={expenses}
           handleDelete={this.props.deleteExpense}
           handleUpdate={this.props.updateExpense}
-        /> */}
+        />
       </div>
     )
   }

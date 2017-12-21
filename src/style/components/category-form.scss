@@ -18,11 +18,11 @@ div#categoryForm {
 }
 
 #categoryName {
-  width: 80px;
+  width: $category-name-width;
 }
 
 #budgetAmt {
-  width: 35px;
+  width: $budget-amt-width;
 }
 
 
@@ -44,10 +44,19 @@ input[type=number]::-webkit-outer-spin-button {
 
 #categorySubmitButton {
   display: block;
-  margin-top: .7em;
+  margin-left: 1.2em;
   width: 8em;
   height: 3em;
   margin-right: 2em;
+  color: rgb(22, 152, 22);
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 13px;
+
+    &:hover{
+      color: rgb(9, 89, 9);
+    }
 
 }
 
@@ -56,14 +65,8 @@ input.inactive {
   color: white;
   border: 1px ivory;
 
-    #categoryName {
-      align-content: right;
-    }
-
-
-    &:hover, &:focus {
-      background: white;
-      color: black;
+    &:focus {
+      outline: none;
     }
 }
 
