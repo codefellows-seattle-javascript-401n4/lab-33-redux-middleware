@@ -5,15 +5,24 @@
   "main": "index.js",
   "devDependencies": {
     "enzyme": "^3.2.0",
-    "enzyme-adapter-react-16": "^1.1.0",
-    "jest": "^21.2.1",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^22.0.3",
     "react-test-renderer": "^16.2.0"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest -i --verbose",
     "watch": "webpack-dev-server --inline --hot",
     "watch-work": "webpack-dev-server --inline --hot --public $C9_HOSTNAME --host $IP --port $PORT",
     "build": "webpack"
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/src/__test__/shim.js",
+      "<rootDir>/src/__test__/setup.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(scss)$": "<rootDir>/node_modules/jest-css-modules"
+    }
   },
   "keywords": [],
   "author": "",

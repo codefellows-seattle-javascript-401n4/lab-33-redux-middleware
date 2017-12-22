@@ -1,9 +1,11 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import {mount} from 'enzyme';
 
 import Dashboard from '../../component/dashboard';
 
 describe('DASHBOARD', () => {
-  let wrapper = shallow(<Dashboard />);
-  console.log('hi');
+  test('test', () => {
+    // let wrapper = mount(<Dashboard />);
+    console.log('hi');
+  })
 })
