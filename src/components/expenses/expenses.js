@@ -22,22 +22,22 @@ class Expenses extends React.Component {
         this.setState({editing})
     }
 
-    handleUpdate(exense) {
-        this.props.handleUpdate(exense);
+    handleUpdate(expense) {
+        this.props.handleUpdate(expense);
         this.toggleModal();
     }
 
     render() {
 
-        let {card, categoryId, handleDelete} = this.props;
+        let {expense, categoryId, handleDelete} = this.props;
 
         return (
 
-            <div key={expenses.id} className="expenses">
+            <div key={expense.id} className="expenses">
 
 
                 <div>
-                    {expenses.title}
+                    {expense.title}
                 </div>
 
                 <div className="actions">
@@ -55,9 +55,9 @@ class Expenses extends React.Component {
                         title="Edit Expense"
                         close={this.toggleModal}
                     >
-                        <CardForm
+                        <ExpensesForm
                             handler={this.handleUpdate}
-                            card={card}
+                            expense={expense}
                             categoryId={categoryId}
                         />
                     </Modal>

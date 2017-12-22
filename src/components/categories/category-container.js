@@ -4,13 +4,15 @@ import { connect } from 'react-redux';
 import CategoryForm from './category-form';
 import CategoryList from './category-list';
 
-import { categoryCreate, categoryDelete, categoryUpdate } from '../../app/actions';
+import { categoryCreate, categoryDelete, categoryUpdate } from './category-actions';
 
 class Categories extends React.Component {
   constructor(props) {
     super(props)
 
     this.props.handleAddCategory({ title: 'Expense' });
+    // this.props.handleAddCategory({ title: 'Expense' });
+    // this.props.handleAddCategory({ title: 'Expense' });
   }
 
   render() {
@@ -28,7 +30,7 @@ class Categories extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  categories: state
+  categories: state.categories
 });
 
 const mapDispatchToProps = (dispatch, getState) => ({

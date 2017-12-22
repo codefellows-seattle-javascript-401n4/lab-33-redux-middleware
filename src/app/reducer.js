@@ -1,19 +1,9 @@
-const initialState = [];
+import { combineReducers } from 'redux';
 
-export default (state = initialState, action) => {
-  let { type, payload } = action;
+import categoryReducer from '../components/categories/category-reducer';
+import expensesReducer from '../components/expenses/expenses-reducer';
 
-  switch (type) {
-    case 'CATEGORY_ADD':
-      return [...state, payload];
-    
-    case 'CATEGORY_UPDATE':
-      return state.map((item, i) => item.id === payload.id ? payload : item);
-
-    case 'CATEGORY_DELETE':
-      return state.filter(category => category.id !== payload);
-
-    default:
-      return state;
-  }
-};
+export default combineReducers({
+  categories: categoryReducer,
+  expenses: expensesReducer
+});

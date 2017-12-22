@@ -19,12 +19,12 @@ export default (state=initialState, action) => {
             return {...state, [categoryId]: [...categoryExpenses, payload]};
 
         case "EXPENSES_DELETE":
-            let deleteCategoryExpensesList = categoryExpenses.filter( (card,i) => card.id !== id );
+            let deleteCategoryExpensesList = categoryExpenses.filter( (expense,i) => expense.id !== id );
             return {...state, [categoryId]: deleteCategoryExpensesList};
 
         case "EXPENSES_UPDATE":
-            let updateCategoryExpensesList = categoryExpenses.map( (card,i) => card.id === id ? payload : expense );
-            return {...state, [categoryId]: updateCategoryCardList};
+            let updateCategoryExpensesList = categoryExpenses.map( (expense,i) => expense.id === id ? payload : expense );
+            return {...state, [categoryId]: updateCategoryExpensesList};
 
         default:
             return state;

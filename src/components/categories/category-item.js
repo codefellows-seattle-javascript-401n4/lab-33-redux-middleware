@@ -12,13 +12,11 @@ class CategoryItem extends React.Component {
     return (
       <div className="category">
         <header>
-          <CategoryForm handler={ this.props.handleUpdate } category ={ this.props.category } />
+          <CategoryForm handler={ this.props.handleUpdate } category={ this.props.category } />
           <a href="#" onClick={ () => this.props.handleDelete(this.props.category.id) }>x</a>
         </header>
 
-        <div className="expenses">
-          <Expenses />
-        </div>
+          <Expenses categoryId={ this.props.category.id } />
 
       </div>
     )
