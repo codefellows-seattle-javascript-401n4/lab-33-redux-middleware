@@ -1,11 +1,14 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 
 import Dashboard from '../../component/dashboard';
+import Main from '../../main.js';
 
-describe('DASHBOARD', () => {
+describe.skip('DASHBOARD', () => {
   test('test', () => {
-    let wrapper = shallow(<Dashboard />);
-    // console.log(wrapper);
+    let mainWrapper = shallow(<Main />);
+    console.log(mainWrapper.state());
+    let dashboard = shallow(<Dashboard />);
+    console.log(dashboard);
   })
 })
