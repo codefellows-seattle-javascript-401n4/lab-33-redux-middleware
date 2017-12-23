@@ -27,10 +27,12 @@ export default (state=initialState, action) => {
         return {...state, [categoryId]: [...categoryExpenses, payload]};
 
       case "EXPENSE_DELETE":
+        validateData(payload);              
         let deleteExpenseList = categoryExpenses.filter(exp => exp.id !== id );
         return {...state, [categoryId]: deleteExpenseList};
 
       case "EXPENSE_UPDATE":
+        validateData(payload);              
         let updateExpenseList = categoryExpenses.map(exp => exp.id === id ? payload : exp );
         return {...state, [categoryId]: updateExpenseList};
 

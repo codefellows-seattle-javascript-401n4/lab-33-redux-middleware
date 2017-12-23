@@ -17,6 +17,7 @@ export default (state=emptyState, {type, payload}) => {
      return [...state, payload];
 
     case "CATEGORY_UPDATE":
+     validateData(payload);        
      return state.map(item => item.id === payload.id ? payload : item );
       
     case "CATEGORY_DESTROY":

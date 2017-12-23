@@ -1,5 +1,6 @@
 import React from 'react';
 import Enzyme, {simulate, mount, shallow} from 'enzyme';
+
 import uuid from 'uuid/v1';
 
 import categoryReducer from '../components/categories/categoryState/category-reducer';
@@ -7,13 +8,15 @@ import expenseReducer from '../components/expenses/expenseState/expense-reducer'
 
 describe('Reducer tests', () => { 
 
+
 	describe('Category Reducer tests', () => {
 		
+		let state;
 		let category = {name: 'Fabulous', createDate: new Date(), id: uuid()};		
 
 		test('add a new category', () => {
 			let action = {type: 'CATEGORY_ADD', payload: category};
-					state = categoryReducer(state, action);
+				state = categoryReducer(state, action);
 
 			expect(state.length).toEqual(1);
 			expect(state[0].name).toEqual('Fabulous');
