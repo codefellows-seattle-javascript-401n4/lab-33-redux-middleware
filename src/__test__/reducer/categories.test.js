@@ -1,12 +1,9 @@
 import reducer from '../../reducer/categories.js';
 
-describe('Category Reducer', () => {
-  test('should initialize with an empty array', () => {
-    let emptyState = reducer(undefined, {});
-    expect(emptyState).toEqual([]);
-  });
+let state;
 
-  test('CATEGORY_CREATE should throw error if no name given', () => {
+describe('CATEGORY REDUCER MIDDLEWARE', () => {
+  test('should throw error if no name given', () => {
     expect(() => reducer(undefined, {
         type: 'CATEGORY_CREATE',
         payload: {
@@ -16,7 +13,7 @@ describe('Category Reducer', () => {
       })).toThrowError('no category name given')
   });
 
-  test('CATEGORY_CREATE should throw error if no budget amount given', () => {
+  test('should throw error if no budget amount given', () => {
     expect(() => reducer(undefined, {
         type: 'CATEGORY_CREATE',
         payload: {
@@ -25,16 +22,51 @@ describe('Category Reducer', () => {
         },
       })).toThrowError('no budget amount given')
   });
+});
+
+describe('CATEGORY REDUCER', () => {
+  test('should initialize with an empty array', () => {
+    let emptyState = reducer(undefined, {});
+    expect(emptyState).toEqual([]);
+  });
 
   test('CATEGORY_CREATE returns updated state with given payload', () => {
-    let newState = reducer(undefined, {
+    state = reducer(undefined, {
       type: 'CATEGORY_CREATE',
       payload: {
         name: 'food',
         budget: 69,
+        id: 1234,
       }
     })
-    expect(newState[0].name).toBe('food');
-    expect(newState[0].budget).toBe(69);
+    expect(state[0].name).toBe('food');
+    expect(state[0].budget).toBe(69);
   });
+
+  test('CATEGORY_UPDATE updates state', () => {
+    let id = state[0].id;
+    let newState = reducer(state, {
+      type: 'CATEGORY_UPDATE',
+      payload: {
+        name: 'different food',
+        budget: 100,
+        id: 1234,
+      }
+    })
+    expect(newState[0].name).toBe('different food');
+    expect(newState[0].budget).toBe(100);
+  });
+
+  test('CATEGORY_DESTROY deletes a category', () => {
+    let id = state[0].id;
+    let newState = reducer(state,{
+      type: 'CATEGORY_DESTROY',
+      payload: {
+        name: 'doesnt matter',
+        budget: 1,
+        id: 1234,
+      }
+    })
+    expect(newState).toEqual([]);
+  })
 });
