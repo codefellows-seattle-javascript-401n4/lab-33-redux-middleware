@@ -1,15 +1,9 @@
-const initialState = [];
+import {combineReducers} from 'redux';
 
-export default (state=initialState, action) => {
-  let {type, payload} = action;
+import catReducer from '../components/categories/cat-reducer.js';
+import expReducer from '../components/expenses/exp-reducer.js';
 
-  switch(type){
-
-  case 'CAT_NAV_UPDATE': return state.map(item => item.id === payload.id ? item : item.render = payload.value);
-
-  case 'CATEGORY_ADD': return [...state, payload];
-
-  default: return state;
-
-  }
-};
+export default combineReducers({
+  categories: catReducer,
+  expenses: expReducer,
+});

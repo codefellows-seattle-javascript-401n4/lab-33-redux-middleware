@@ -9,7 +9,7 @@ class Header extends React.Component {
   render(){
     return(
       <header>
-        <h1>Budget Master 3000</h1>
+        <h1>Budget Master</h1>
       </header>
     )
   }

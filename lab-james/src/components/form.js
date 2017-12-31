@@ -1,11 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {createCategory} from '../../app/actions.js';
+import '../style/components/modal.scss';
 
-import '../../style/components/modal.scss';
-
-class CatForm extends React.Component {
+class Form extends React.Component{
 
   constructor(props){
     super(props);
@@ -17,14 +15,13 @@ class CatForm extends React.Component {
 
   }
 
-  handleChange(e){
-    this.setState({[e.target.id]: e.target.value});
-  }
-
   handleSubmit(e){
     e.preventDefault();
-    this.props.handleCreateCategory(Object.assign({}, this.state));
-    this.props.toggleCatForm();
+    console.log('Submit');
+  }
+
+  handleChange(e){
+    this.setState({[e.target.id]: e.target.value});
   }
 
   render(){
@@ -32,11 +29,12 @@ class CatForm extends React.Component {
       <div className="overlay">
         <div className="modal">
           <form onSubmit={this.handleSubmit}>
-            <label htmlFor="name">Name:
+            <a className="close-button" onClick={this.props.toggleForm}>x</a>
+            <label className="form-field" htmlFor="name">Name:
               <input type="text" id="name" onChange={this.handleChange} />
             </label>
-            <label htmlFor="budget">Budget:
-              <input type="number" id="budget" onChange={this.handleChange} />
+            <label className="form-field" htmlFor={this.props.type}>{this.props.type}:
+              <input type="number" id={this.props.type} onChange={this.handleChange} />
             </label>
             <input type="submit" value="Submit" />
           </form>
@@ -44,15 +42,14 @@ class CatForm extends React.Component {
       </div>
     )
   }
-
 }
 
 const mapStateToProps = state => ({
-  categories: state
+  categories: state.categories
 });
 
 const mapDispatchToProps = (dispatch, getState) => ({
-  handleCreateCategory: category => dispatch(createCategory(category))
+
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CatForm);
+export default connect(mapStateToProps, mapDispatchToProps)(Form);

@@ -1,25 +1,45 @@
 .cat-nav {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-}
-
-.cat-nav-item {
-  display: inline-block;
-  // border-left: 1px solid black;
-  border-right: 1px solid black;
-  padding: 1em;
+  border: 1px solid black;
   width: 10%;
-  height: 5px;
-  line-height: 5px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  text-align: center;
+  background: white;
+  border-radius: 5px;
+
+  .cat-nav-item {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: left;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
+  .button {
+    width: 100%;
+    cursor: pointer;
+   }
 }
 
 .cat-item {
   border: 1px solid black;
   background: #fff;
   margin: 1em;
+  padding: 1em;
+}
+
+.form-field {
+  display: block;
+  margin-bottom: 1em;
+}
+
+.close-button {
+  cursor: pointer;
+  float: right;
+}
+
+input {
+  margin-left: .5em;
+}
+
+form {
   padding: 1em;
 }
