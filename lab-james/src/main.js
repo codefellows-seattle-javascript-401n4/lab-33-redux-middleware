@@ -17,10 +17,6 @@ class Main extends React.Component {
     super(props);
   }
 
-  componentDidMount(){
-    store.subscribe( () => console.log('__STORE__', store.getState()));
-  }
-
   render(){
     return(
       <Provider store={store}>

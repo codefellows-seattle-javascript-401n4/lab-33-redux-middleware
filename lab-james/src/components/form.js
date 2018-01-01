@@ -17,7 +17,7 @@ class Form extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    console.log('Submit');
+    this.props.submitAction(this.state);
   }
 
   handleChange(e){

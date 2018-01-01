@@ -2,6 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {renderIf} from '../../lib/renderIf.js';
 import Form from '../form.js';
+import uuid from 'uuid/v4';
+
+import {catCreate} from './cat-actions.js';
 
 import '../../style/components/cat.scss';
 
@@ -12,11 +15,10 @@ class CatNav extends React.Component {
 
     this.state ={
       renderForm: false,
-      budget: 'budget',
-      name: 'name'
     }
 
     this.toggleForm = this.toggleForm.bind(this);
+    this.catAdd = this. catAdd.bind(this);
   }
 
   toggleForm(){
@@ -29,17 +31,30 @@ class CatNav extends React.Component {
     }
   }
 
+  catAdd(state){
+    state.Budget = parseInt(state.Budget);
+    state.id = uuid();
+    state.createDate = new Date();
+    state.expenses = 0;
+    state.updated = '';
+    state.remaining = state.Budget;
+    this.props.handleCatCreate(Object.assign({}, state));
+    this.toggleForm();
+  }
+
   render(){
     return(
       <div className="cat-nav">
         <button type="button" className="button" onClick={this.toggleForm}>+Add New Budget</button>
         <p className="cat-nav-item">Show All</p>
-        <p className="cat-nav-item">Test</p>
-        <p className="cat-nav-item">Test</p>
-        <p className="cat-nav-item">TestTestTestTestTestTest</p>
+        {
+          this.props.categories.map(category => (
+            <p key={category.id} className="cat-nav-item">{category.name}</p>
+          ))
+        }
         {renderIf(
           this.state.renderForm,
-          <Form toggleForm={this.toggleForm} type="Budget"/>
+          <Form toggleForm={this.toggleForm} type="Budget" submitAction={this.catAdd}/>
         )}
       </div>
 
@@ -53,7 +68,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch, getState) => ({
-
+  handleCatCreate: category => dispatch(catCreate(category))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CatNav);

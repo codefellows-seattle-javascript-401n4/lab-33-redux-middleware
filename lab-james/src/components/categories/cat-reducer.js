@@ -5,6 +5,8 @@ export default (state=initialState, action) => {
 
   switch(type){
 
+  case 'CAT_ADD': return [...state, payload];
+
   default: return state;
 
   }
