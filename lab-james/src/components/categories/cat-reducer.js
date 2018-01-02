@@ -9,6 +9,8 @@ export default (state=initialState, action) => {
 
   case 'CAT_UPDATE': return state.map(item => item.id === payload.id ? payload : item);
 
+  case 'CAT_DELETE': return state.filter(item => item.id !== payload);
+
   default: return state;
 
   }

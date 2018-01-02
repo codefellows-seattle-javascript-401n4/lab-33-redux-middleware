@@ -4,6 +4,7 @@ import {renderIf} from '../../lib/renderIf.js';
 import Form from '../form.js';
 
 import {catUpdate} from './cat-actions.js';
+import {catDelete} from './cat-actions.js';
 
 import '../../style/components/cat.scss';
 
@@ -18,6 +19,7 @@ class CatItem extends React.Component {
 
     this.toggleUpdate = this.toggleUpdate.bind(this);
     this.catUpdate = this.catUpdate.bind(this);
+    this.delete = this.delete.bind(this);
   }
 
   toggleUpdate(){
@@ -37,6 +39,10 @@ class CatItem extends React.Component {
     this.toggleUpdate();
   }
 
+  delete(){
+    this.props.handleCatDelete(this.props.category.id);
+  }
+
   render(){
     return (
       <div>
@@ -49,7 +55,7 @@ class CatItem extends React.Component {
               <h3>Total Expenses: {this.props.category.expenses}</h3>
               <h3>Remaining: {this.props.category.remaining}</h3>
               <button onClick={this.toggleUpdate}>Update</button>
-              <button>Delete</button>
+              <button onClick={this.delete}>Delete</button>
               <button>+ Add Expense</button>
             </div>
           </div>
@@ -63,7 +69,7 @@ class CatItem extends React.Component {
               <h3>Total Expenses: {this.props.category.expenses}</h3>
               <h3>Remaining: {this.props.category.remaining}</h3>
               <button onClick={this.toggleUpdate}>Update</button>
-              <button>Delete</button>
+              <button onClick={this.delete}>Delete</button>
               <button>+ Add Expense</button>
             </div>
           </div>
@@ -82,7 +88,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch, getState) => ({
-  handleCatUpdate: category => dispatch(catUpdate(category))
+  handleCatUpdate: category => dispatch(catUpdate(category)),
+  handleCatDelete: categoryId => dispatch(catDelete(categoryId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CatItem);

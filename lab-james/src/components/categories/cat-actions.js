@@ -11,3 +11,10 @@ export const catUpdate = category => {
     payload: category,
   };
 };
+
+export const catDelete = categoryId => {
+  return {
+    type: 'CAT_DELETE',
+    payload: categoryId,
+  };
+};
