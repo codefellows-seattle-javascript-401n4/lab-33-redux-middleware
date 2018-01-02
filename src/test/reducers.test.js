@@ -1,6 +1,5 @@
 import React from 'react';
 import Enzyme, {simulate, mount, shallow} from 'enzyme';
-
 import uuid from 'uuid/v1';
 
 import categoryReducer from '../components/categories/categoryState/category-reducer';
@@ -8,35 +7,39 @@ import expenseReducer from '../components/expenses/expenseState/expense-reducer'
 
 describe('Reducer tests', () => { 
 
-
 	describe('Category Reducer tests', () => {
 		
-		let state;
-		let category = {name: 'Fabulous', createDate: new Date(), id: uuid()};		
+		let category = {name: 'Foodz', createDate: new Date(), id: uuid(), budget: '200'};
+		let state =[];		
 
 		test('add a new category', () => {
 			let action = {type: 'CATEGORY_ADD', payload: category};
-				state = categoryReducer(state, action);
+			state = categoryReducer(state, action);
 
 			expect(state.length).toEqual(1);
-			expect(state[0].name).toEqual('Fabulous');
+			expect(state[0].budget).toEqual('200');			
+			expect(state[0].name).toEqual('Foodz');
+			expect(state[0].id).not.toBe(undefined);			
 				
 		});
 
 		test('update a category', () => {
-			
-			let newCategory = {name: 'New and improved!'};			
+
+			let newCategory = {name: 'Groceries', budget: '300' };			
 
 				state = categoryReducer(state, {
 				type: 'CATEGORY_UPDATE',
 				payload: {
 					name: newCategory.name,
+					budget: newCategory.budget,
 					createDate: new Date(),
 					id: category.id,
 				}
 			});
 
-			expect(state[0].name).toEqual('New and improved!');
+			expect(state[0].name).toEqual('Groceries');
+			expect(state[0].budget).toEqual('300');
+			expect(state[0].id).not.toBe(undefined);
 			expect(state.length).toEqual(1);
 		});
 
@@ -57,66 +60,36 @@ describe('Reducer tests', () => {
 		});
 	})
 
-	// describe('Expense Reducer tests', () => {
-		
-	// 	let category = {
-	// 		name: 'Groceries',
-	// 		budget: '300',
-	// 		createDate: new Date(),
-	// 		id: uuid(),
-	// 		expenses: {}
-	// 	};	
-		
-	// 	let expense = { 
-	// 		expense: 'PCC', 
-	// 		cost: '100', 
-	// 		createDate: new Date(), 
-	// 		id: uuid(),
-	// 		categoryId: category.id
-		 
-	// 	};
-		
-	// 	test('add a new expense', () => {
-	// 		let action = {type: 'EXPENSE_ADD', payload: expense};
-	// 			let	state = expenseReducer(state, action);
+	describe('Expense Reducer tests', () => {
+				
+		test('add a new expense', () => {
+
+			let categoryId = uuid();	
+			let expenseObj = {
+				expense: 'PCC', 
+				cost: '200', 
+				id: uuid(),
+				categoryId: categoryId
+			};
+
+			let state = {
+				[categoryId]: expenseObj
+			}
+			
+			  state = expenseReducer(state, {
+				type: 'EXPENSE_ADD', 
+				payload: {
+					expense: 'PCC', 
+					cost: '200', 
+					id: uuid(),
+					categoryId: categoryId
+				}
+			});
 	
-			// expect(state.length).toEqual(1);
-			// expect(state[0].expense).toEqual('PCC');
-			// expect(state[0].cost).toEqual('200');
+			expect(state[categoryId][0].expense).toEqual('PCC');
+			expect(state[categoryId][0].cost).toEqual('200');
 				
 		});
-		
-			// test('update a expense', () => {
-				
-			// 	let newexpense = {name: 'New and improved!'};			
-		
-			// 		state = reducer(state, {
-			// 		type: 'EXPENSE_UPDATE',
-			// 		payload: {
-			// 			name: newexpense.name,
-			// 			createDate: new Date(),
-			// 			id: expense.id,
-			// 		}
-			// 	});
-		
-			// 	expect(state[0].name).toEqual('New and improved!');
-			// 	expect(state.length).toEqual(1);
-			// });
-		
-			// test('delete a expense', () => {
-			
-			// 	let cat1 = {name: 'Cat1', id: uuid()};
-			// 	let cat2 = {name: 'Cat2', id: uuid()};
-			// 	state = [{...cat1}, {...cat2}];
-				
-			// 	state = reducer(state, {
-			// 		type: 'EXPENSE_DELETE', 
-			// 		payload: cat1.id
-			// 	});
-		
-			// 	expect(state.length).toEqual(1);
-			// 	expect(state[0].name).toEqual('Cat2');
-			// });
-		})
+	})
 })
 
