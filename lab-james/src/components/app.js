@@ -11,18 +11,23 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      name: 'test'
+      id: ''
     };
+
+    this.idChange = this.idChange.bind(this);
+  }
+
+  idChange(value){
+    this.setState({id: value});
+    console.log(this.state);
   }
 
   render(){
     return(
       <div>
         <Header />
-        <CatNav />
-        <CatList catList={this.props.categories.filter(category => (
-          category.name === this.state.name
-        ))} />
+        <CatNav idChange={this.idChange}/>
+        <CatList catId={this.state.id} />
       </div>
     )
   }

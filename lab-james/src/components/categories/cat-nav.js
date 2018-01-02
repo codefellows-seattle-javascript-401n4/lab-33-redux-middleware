@@ -19,6 +19,12 @@ class CatNav extends React.Component {
 
     this.toggleForm = this.toggleForm.bind(this);
     this.catAdd = this. catAdd.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e){
+    console.log(e.target.id);
+    this.props.idChange(e.target.id);
   }
 
   toggleForm(){
@@ -46,10 +52,10 @@ class CatNav extends React.Component {
     return(
       <div className="cat-nav">
         <button type="button" className="button" onClick={this.toggleForm}>+Add New Budget</button>
-        <p className="cat-nav-item">Show All</p>
+        <p className="cat-nav-item" onClick={this.handleClick}>Show All</p>
         {
           this.props.categories.map(category => (
-            <p key={category.id} className="cat-nav-item">{category.name}</p>
+            <p key={category.id} id={category.id} className="cat-nav-item" onClick={this.handleClick}>{category.name}</p>
           ))
         }
         {renderIf(

@@ -21,7 +21,7 @@ class CatList extends React.Component {
       <button onClick={this.showProps}>test</button>
         {
           this.props.categories.map(category => (
-            <CatItem key={category.id} category={category} />
+            <CatItem key={category.id} category={category} catId={this.props.catId}/>
           ))
         }
       </div>
