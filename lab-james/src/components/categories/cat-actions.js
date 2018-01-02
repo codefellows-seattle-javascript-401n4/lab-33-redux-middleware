@@ -4,3 +4,10 @@ export const catCreate = category => {
     payload: category,
   };
 };
+
+export const catUpdate = category => {
+  return {
+    type: 'CAT_UPDATE',
+    payload: category,
+  };
+};

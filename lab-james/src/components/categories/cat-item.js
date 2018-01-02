@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {renderIf} from '../../lib/renderIf.js';
 import Form from '../form.js';
 
+import {catUpdate} from './cat-actions.js';
+
 import '../../style/components/cat.scss';
 
 class CatItem extends React.Component {
@@ -21,17 +23,17 @@ class CatItem extends React.Component {
   toggleUpdate(){
     if(this.state.renderUpdate){
       this.setState({renderUpdate: false});
-      console.log(this.state);
     }
 
     if(!this.state.renderUpdate){
       this.setState({renderUpdate: true});
-      console.log(this.state);
     }
   }
 
-  catUpdate(){
-    console.log('updatey stuff');
+  catUpdate(state){
+    state.Budget = parseInt(state.Budget);
+    state.remaining = state.Budget - state.expenses;
+    this.props.handleCatUpdate(state);
     this.toggleUpdate();
   }
 
@@ -80,7 +82,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch, getState) => ({
-
+  handleCatUpdate: category => dispatch(catUpdate(category))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CatItem);

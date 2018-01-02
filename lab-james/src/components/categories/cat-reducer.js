@@ -7,6 +7,8 @@ export default (state=initialState, action) => {
 
   case 'CAT_ADD': return [...state, payload];
 
+  case 'CAT_UPDATE': return state.map(item => item.id === payload.id ? payload : item);
+
   default: return state;
 
   }
