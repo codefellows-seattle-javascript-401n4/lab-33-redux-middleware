@@ -19,7 +19,6 @@ class App extends React.Component {
 
   idChange(value){
     this.setState({id: value});
-    console.log(this.state);
   }
 
   render(){

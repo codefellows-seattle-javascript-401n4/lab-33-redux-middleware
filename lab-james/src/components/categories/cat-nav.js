@@ -23,7 +23,6 @@ class CatNav extends React.Component {
   }
 
   handleClick(e){
-    console.log(e.target.id);
     this.props.idChange(e.target.id);
   }
 
