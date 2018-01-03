@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {renderIf} from '../../lib/renderIf.js';
 import Form from '../form.js';
 import ExpList from '../expenses/exp-list.js';
+import uuid from 'uuid/v4';
 
 import {catUpdate} from './cat-actions.js';
 import {catDelete} from './cat-actions.js';
@@ -61,9 +62,8 @@ class CatItem extends React.Component {
   expAdd(state){
     state.Amount = parseInt(state.Amount);
     state.catId = this.props.category.id;
+    state.id = uuid();
     this.props.handleExpCreate(state);
-    console.log(state);
-    console.log('working so far');
   }
 
   render(){

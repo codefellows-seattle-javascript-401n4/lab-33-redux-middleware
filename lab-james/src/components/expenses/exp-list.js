@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import ExpItem from './exp-item.js';
 
-// import '../../style/components/exp.scss';
+import '../../style/components/exp.scss';
 
 class ExpList extends React.Component {
 
@@ -16,7 +16,7 @@ class ExpList extends React.Component {
       <div className="expense-list">
         {
           this.props.expenses[this.props.catId].map(expense => (
-            <p>working</p>
+            <ExpItem key={expense.id} expense={expense} />
           ))
         }
       </div>
