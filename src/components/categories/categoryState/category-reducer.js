@@ -23,6 +23,15 @@ export default (state=emptyState, {type, payload}) => {
     case "CATEGORY_DESTROY":
      return state.filter(item => item.id !== payload)
       
+    case "EXPENSE_ADD": 
+     return state.map(category => category.id === payload.categoryId ? (category.budget -= payload.cost) && category : category);
+
+    case "EXPENSE_UPDATE":
+     return state.map(category => category.id === payload.categoryId ? (category.budget -= payload.cost) && category : category);
+   
+    case "EXPENSE_DELETE":
+     return state.map(category => category.id === payload.categoryId ? (category.budget += payload.cost) && category : category);
+
     default:
         return state;
 

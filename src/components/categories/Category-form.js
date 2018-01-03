@@ -6,7 +6,7 @@ class CategoryForm extends React.Component {
 
     super(props);
 
-    this.state = this.props.category || {name:'', budget:''},        
+    this.state = this.props.category || {name:'', budget:0},        
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -20,8 +20,9 @@ class CategoryForm extends React.Component {
     
   handleSubmit(e) {
     e.preventDefault();
+    this.state.budget = parseInt(this.state.budget);
     this.props.handler( Object.assign({}, this.state));
-    if(this.props.submitText !== 'Update') this.setState({name: '', budget: ''});
+    if(this.props.submitText !== 'Update') this.setState({name: '', budget: 0});
     else {
        this.submitState = 'hidden';
        this.formState = 'inactive'; 
