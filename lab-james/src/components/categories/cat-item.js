@@ -2,9 +2,11 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {renderIf} from '../../lib/renderIf.js';
 import Form from '../form.js';
+import ExpList from '../expenses/exp-list.js';
 
 import {catUpdate} from './cat-actions.js';
 import {catDelete} from './cat-actions.js';
+import {expCreate} from '../expenses/exp-actions.js';
 
 import '../../style/components/cat.scss';
 
@@ -14,12 +16,15 @@ class CatItem extends React.Component {
     super(props);
 
     this.state = {
-      renderUpdate: false
+      renderUpdate: false,
+      renderExpForm: false
     }
 
     this.toggleUpdate = this.toggleUpdate.bind(this);
+    this.toggleExpForm = this.toggleExpForm.bind(this);
     this.catUpdate = this.catUpdate.bind(this);
     this.delete = this.delete.bind(this);
+    this.expAdd = this.expAdd.bind(this);
   }
 
   toggleUpdate(){
@@ -32,6 +37,16 @@ class CatItem extends React.Component {
     }
   }
 
+  toggleExpForm(){
+    if(this.state.renderExpForm){
+      this.setState({renderExpForm: false});
+    }
+
+    if(!this.state.renderExpForm){
+      this.setState({renderExpForm: true});
+    }
+  }
+
   catUpdate(state){
     state.Budget = parseInt(state.Budget);
     state.remaining = state.Budget - state.expenses;
@@ -41,6 +56,14 @@ class CatItem extends React.Component {
 
   delete(){
     this.props.handleCatDelete(this.props.category.id);
+  }
+
+  expAdd(state){
+    state.Amount = parseInt(state.Amount);
+    state.catId = this.props.category.id;
+    this.props.handleExpCreate(state);
+    console.log(state);
+    console.log('working so far');
   }
 
   render(){
@@ -56,8 +79,9 @@ class CatItem extends React.Component {
               <h3>Remaining: {this.props.category.remaining}</h3>
               <button onClick={this.toggleUpdate}>Update</button>
               <button onClick={this.delete}>Delete</button>
-              <button>+ Add Expense</button>
+              <button onClick={this.toggleExpForm}>+ Add Expense</button>
             </div>
+            <ExpList catId={this.props.category.id} />
           </div>
         )}
         {renderIf(
@@ -70,13 +94,18 @@ class CatItem extends React.Component {
               <h3>Remaining: {this.props.category.remaining}</h3>
               <button onClick={this.toggleUpdate}>Update</button>
               <button onClick={this.delete}>Delete</button>
-              <button>+ Add Expense</button>
+              <button onClick={this.toggleExpForm}>+ Add Expense</button>
             </div>
+            <ExpList catId={this.props.category.id} />
           </div>
         )}
         {renderIf(
           this.state.renderUpdate,
           <Form toggleForm={this.toggleUpdate} type='Budget' submitAction={this.catUpdate} category={this.props.category}/>
+        )}
+        {renderIf(
+          this.state.renderExpForm,
+          <Form toggleForm={this.toggleExpForm} type='Amount' submitAction={this.expAdd} />
         )}
       </div>
     )
@@ -84,12 +113,14 @@ class CatItem extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  categories: state.categories
+  categories: state.categories,
+  expenses: state.expenses
 });
 
 const mapDispatchToProps = (dispatch, getState) => ({
   handleCatUpdate: category => dispatch(catUpdate(category)),
-  handleCatDelete: categoryId => dispatch(catDelete(categoryId))
+  handleCatDelete: categoryId => dispatch(catDelete(categoryId)),
+  handleExpCreate: exp => dispatch(expCreate(exp))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CatItem);

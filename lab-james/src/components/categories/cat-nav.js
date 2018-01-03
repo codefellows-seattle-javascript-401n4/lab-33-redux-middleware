@@ -44,7 +44,6 @@ class CatNav extends React.Component {
     state.updated = '';
     state.remaining = state.Budget;
     this.props.handleCatCreate(Object.assign({}, state));
-    this.toggleForm();
   }
 
   render(){
