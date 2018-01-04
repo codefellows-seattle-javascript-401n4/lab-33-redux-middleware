@@ -11,7 +11,7 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     text-align: left;
-    margin-left: 1em;
+    margin-left: .5em;
     margin-right: 1em;
     cursor: pointer;
   }
@@ -25,15 +25,18 @@
 #cat-list {
   display: inline-block;
   width: 86%;
+
+  .cat-item {
+    height: 230px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background: #fff;
+    margin: 1em;
+    padding: 1em;
+  }
 }
 
-.cat-item {
-  border: 1px solid black;
-  border-radius: 5px;
-  background: #fff;
-  margin: 1em;
-  padding: 1em;
-}
+
 
 .form-field {
   display: block;
@@ -42,7 +45,6 @@
 
 .close-button {
   cursor: pointer;
-  // float: right;
   margin-left: 95%;
 }
 

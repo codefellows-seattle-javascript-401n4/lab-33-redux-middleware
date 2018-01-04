@@ -4,3 +4,10 @@ export const expCreate = exp => {
     payload: exp,
   };
 };
+
+export const expUpdate = exp => {
+  return {
+    type: 'EXP_UPDATE',
+    payload: exp,
+  };
+};

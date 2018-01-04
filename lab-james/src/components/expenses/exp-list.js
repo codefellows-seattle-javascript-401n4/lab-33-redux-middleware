@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 
 import ExpItem from './exp-item.js';
 
-import '../../style/components/exp.scss';
 
 class ExpList extends React.Component {
 

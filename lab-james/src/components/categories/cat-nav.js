@@ -6,7 +6,6 @@ import uuid from 'uuid/v4';
 
 import {catCreate} from './cat-actions.js';
 
-import '../../style/components/cat.scss';
 
 class CatNav extends React.Component {
 
@@ -58,7 +57,7 @@ class CatNav extends React.Component {
         }
         {renderIf(
           this.state.renderForm,
-          <Form toggleForm={this.toggleForm} type="Budget" submitAction={this.catAdd}/>
+          <Form toggleForm={this.toggleForm} type="Budget" submitAction={this.catAdd} action="Submit"/>
         )}
       </div>
 

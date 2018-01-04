@@ -9,7 +9,6 @@ import {catUpdate} from './cat-actions.js';
 import {catDelete} from './cat-actions.js';
 import {expCreate} from '../expenses/exp-actions.js';
 
-import '../../style/components/cat.scss';
 
 class CatItem extends React.Component {
 
@@ -52,7 +51,6 @@ class CatItem extends React.Component {
     state.Budget = parseInt(state.Budget);
     state.remaining = state.Budget - state.expenses;
     this.props.handleCatUpdate(state);
-    this.toggleUpdate();
   }
 
   delete(){
@@ -63,7 +61,16 @@ class CatItem extends React.Component {
     state.Amount = parseInt(state.Amount);
     state.catId = this.props.category.id;
     state.id = uuid();
+    state.difference = state.Amount;
     this.props.handleExpCreate(state);
+
+    let cat = this.props.categories.filter(category => {
+      return category.id === this.props.category.id;
+    })[0];
+
+    cat.expenses = cat.expenses + state.Amount;
+    cat.remaining = cat.Budget - cat.expenses;
+    this.catUpdate(cat);
   }
 
   render(){
@@ -101,11 +108,11 @@ class CatItem extends React.Component {
         )}
         {renderIf(
           this.state.renderUpdate,
-          <Form toggleForm={this.toggleUpdate} type='Budget' submitAction={this.catUpdate} category={this.props.category}/>
+          <Form toggleForm={this.toggleUpdate} type='Budget' submitAction={this.catUpdate} item={this.props.category} action="Update" defaultNum={this.props.category.Budget}/>
         )}
         {renderIf(
           this.state.renderExpForm,
-          <Form toggleForm={this.toggleExpForm} type='Amount' submitAction={this.expAdd} />
+          <Form toggleForm={this.toggleExpForm} type='Amount' submitAction={this.expAdd} action="Submit" />
         )}
       </div>
     )

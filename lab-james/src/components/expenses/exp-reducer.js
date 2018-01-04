@@ -1,11 +1,16 @@
 const initialState = {};
 
 export default (state=initialState, action) => {
-  let {type, payload} = action;
+  let {type, payload={}} = action;
+  let catExpenses = state[payload.catId];
 
   switch(type){
 
   case 'EXP_ADD': return {...state, [payload.catId]: [...state[payload.catId], payload]};
+
+  case 'EXP_UPDATE':
+    let updateList = catExpenses.map(exp => exp.id === payload.id ? payload : exp);
+    return {...state, [payload.catId]: updateList};
 
   case 'CAT_ADD': return {...state, [payload.id]: []};
 

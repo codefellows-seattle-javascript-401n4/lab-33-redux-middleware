@@ -8,7 +8,7 @@ class Form extends React.Component{
   constructor(props){
     super(props);
 
-    this.state = this.props.category || {};
+    this.state = this.props.item || {};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,12 +32,12 @@ class Form extends React.Component{
           <form onSubmit={this.handleSubmit}>
             <a className="close-button" onClick={this.props.toggleForm}>x</a>
             <label className="form-field" htmlFor="name">Name:
-              <input type="text" id="name" onChange={this.handleChange} defaultValue={this.state.name}/>
+              <input type="text" id="name" onChange={this.handleChange} defaultValue={this.state.name} required/>
             </label>
             <label className="form-field" htmlFor={this.props.type}>{this.props.type}:
-              <input type="number" id={this.props.type} onChange={this.handleChange} defaultValue={this.state.Budget} />
+              <input type="number" id={this.props.type} onChange={this.handleChange} defaultValue={this.props.defaultNum} required/>
             </label>
-            <input type="submit" value="Submit" />
+            <input type="submit" value={this.props.action} />
           </form>
         </div>
       </div>
