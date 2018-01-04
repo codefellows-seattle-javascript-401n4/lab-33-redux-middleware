@@ -5,6 +5,7 @@ import Form from '../form.js';
 
 import {catUpdate} from '../categories/cat-actions.js';
 import {expUpdate} from './exp-actions.js';
+import {expDelete} from './exp-actions.js';
 
 
 class ExpItem extends React.Component {
@@ -18,6 +19,7 @@ class ExpItem extends React.Component {
 
     this.toggleUpdate = this.toggleUpdate.bind(this);
     this.expUpdate = this.expUpdate.bind(this);
+    this.delete = this.delete.bind(this);
   }
 
   toggleUpdate(){
@@ -45,11 +47,15 @@ class ExpItem extends React.Component {
     this.props.handleExpUpdate(state);
   }
 
+  delete(){
+    this.props.handleExpDelete(this.props.expense);
+  }
+
   render(){
     return(
       <div>
       <div className="exp-item" onDoubleClick={this.toggleUpdate}>
-        <a className="close-button">x</a>
+        <a className="close-button" onClick={this.delete}>x</a>
         <h5>{this.props.expense.name}</h5>
         <h5>Amount: {this.props.expense.Amount}</h5>
       </div>
@@ -69,6 +75,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch, getState) => ({
   handleExpUpdate: exp => dispatch(expUpdate(exp)),
+  handleExpDelete: exp => dispatch(expDelete(exp)),
   handleCatUpdate: category => dispatch(catUpdate(category)),
 });
 
