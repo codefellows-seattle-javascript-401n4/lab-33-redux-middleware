@@ -48,6 +48,13 @@ class ExpItem extends React.Component {
   }
 
   delete(){
+    let cat = this.props.categories.filter(category => {
+      return category.id === this.props.expense.catId;
+    })[0];
+    cat.expenses -= this.props.expense.Amount;
+    cat.remaining = cat.Budget - cat.expenses;
+    this.props.handleCatUpdate(cat);
+
     this.props.handleExpDelete(this.props.expense);
   }
 
