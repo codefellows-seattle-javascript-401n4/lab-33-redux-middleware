@@ -24,13 +24,31 @@ export default (state=emptyState, {type, payload}) => {
      return state.filter(item => item.id !== payload)
       
     case "EXPENSE_ADD": 
-     return state.map(category => category.id === payload.categoryId ? (category.budget -= payload.cost) && category : category);
+     return state.map(category => {
+       if(category.id === payload.categoryId) { 
+         category.budget -= payload.cost;
+         return category;
+        } 
+       return category;
+     });
 
     case "EXPENSE_UPDATE":
-     return state.map(category => category.id === payload.categoryId ? (category.budget -= payload.cost) && category : category);
-   
+    return state.map(category => {
+      if(category.id === payload.categoryId) { 
+        category.budget -= payload.cost;
+        return category;
+       } 
+      return category;
+    });
+
     case "EXPENSE_DELETE":
-     return state.map(category => category.id === payload.categoryId ? (category.budget += payload.cost) && category : category);
+    return state.map(category => {
+      if(category.id === payload.categoryId) { 
+        category.budget += payload.cost;
+        return category;
+       } 
+      return category;
+    });
 
     default:
         return state;
