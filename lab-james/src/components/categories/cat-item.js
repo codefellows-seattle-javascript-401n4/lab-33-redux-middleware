@@ -84,6 +84,7 @@ class CatItem extends React.Component {
               <h3>Budget: {this.props.category.Budget}</h3>
               <h3>Total Expenses: {this.props.category.expenses}</h3>
               <h3>Remaining: {this.props.category.remaining}</h3>
+              <p>{this.props.category.comments}</p>
               <button onClick={this.toggleUpdate}>Update</button>
               <button onClick={this.delete}>Delete</button>
               <button onClick={this.toggleExpForm}>+ Add Expense</button>
@@ -99,6 +100,7 @@ class CatItem extends React.Component {
               <h3>Budget: {this.props.category.Budget}</h3>
               <h3>Total Expenses: {this.props.category.expenses}</h3>
               <h3>Remaining: {this.props.category.remaining}</h3>
+              <p>{this.props.category.comments}</p>
               <button onClick={this.toggleUpdate}>Update</button>
               <button onClick={this.delete}>Delete</button>
               <button onClick={this.toggleExpForm}>+ Add Expense</button>

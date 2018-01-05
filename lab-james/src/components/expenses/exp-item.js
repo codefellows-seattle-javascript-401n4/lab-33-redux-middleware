@@ -65,6 +65,7 @@ class ExpItem extends React.Component {
         <a className="close-button" onClick={this.delete}>x</a>
         <h5>{this.props.expense.name}</h5>
         <h5>Amount: {this.props.expense.Amount}</h5>
+        <p>{this.props.expense.comments}</p>
       </div>
       {renderIf(
         this.state.renderUpdate,

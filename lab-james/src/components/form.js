@@ -37,6 +37,9 @@ class Form extends React.Component{
             <label className="form-field" htmlFor={this.props.type}>{this.props.type}:
               <input type="number" id={this.props.type} onChange={this.handleChange} defaultValue={this.props.defaultNum} required/>
             </label>
+            <label className="form-field" htmlFor="comments">Comments:
+              <input type="text" id="comments" onChange={this.handleChange} defaultValue={this.state.comments} />
+            </label>
             <input type="submit" value={this.props.action} />
           </form>
         </div>

@@ -27,37 +27,22 @@
   width: 86%;
 
   .cat-item {
-    height: 230px;
+    height: 240px;
     border: 1px solid black;
     border-radius: 5px;
     background: #fff;
     margin: 1em;
     padding: 1em;
+    padding-top: 0;
   }
-}
-
-
-
-.form-field {
-  display: block;
-  margin-bottom: 1em;
-}
-
-.close-button {
-  cursor: pointer;
-  margin-left: 95%;
-}
-
-input {
-  margin-left: .5em;
-}
-
-form {
-  padding: 1em;
 }
 
 .cat-details {
   display: inline-block;
   border-right: 1px solid black;
   width: 25%;
+
+  h3 {
+    margin-top: .5em;
+  }
 }
