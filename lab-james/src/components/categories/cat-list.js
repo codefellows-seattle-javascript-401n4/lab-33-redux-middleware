@@ -11,10 +11,10 @@ class CatList extends React.Component {
 
   render(){
     return(
-      <div id="catlists">
+      <div id='cat-list'>
         {
           this.props.categories.map(category => (
-            <CatItem key={category.id} category={category} />
+            <CatItem key={category.id} category={category} catId={this.props.catId}/>
           ))
         }
       </div>
@@ -23,7 +23,7 @@ class CatList extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  categories: state
+  categories: state.categories
 });
 
 export default connect(mapStateToProps)(CatList);

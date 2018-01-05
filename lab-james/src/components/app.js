@@ -1,9 +1,8 @@
 import React from 'react';
-import {renderIf} from '../lib/renderIf.js';
+import {connect} from 'react-redux';
 
 import Header from './header.js';
 import CatNav from './categories/cat-nav.js';
-import CatForm from './categories/cat-form.js';
 import CatList from './categories/cat-list.js';
 
 class App extends React.Component {
@@ -12,37 +11,29 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      showCatForm: false
-    }
+      id: ''
+    };
 
-    this.toggleCatForm = this.toggleCatForm.bind(this);
-
+    this.idChange = this.idChange.bind(this);
   }
 
-  toggleCatForm(){
-    if(!this.state.showCatForm){
-      this.setState({showCatForm: true});
-    }
-
-    if(this.state.showCatForm){
-      this.setState({showCatForm: false});
-    }
+  idChange(value){
+    this.setState({id: value});
   }
 
   render(){
     return(
       <div>
-       <Header />
-       <button type="button" onClick={this.toggleCatForm}>+Add New Budget</button>
-       <CatNav />
-       {renderIf(
-         this.state.showCatForm,
-         <CatForm toggleCatForm={this.toggleCatForm}/>
-       )}
-       <CatList />
+        <Header />
+        <CatNav idChange={this.idChange}/>
+        <CatList catId={this.state.id} />
       </div>
     )
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  categories: state.categories
+});
+
+export default connect(mapStateToProps)(App);
