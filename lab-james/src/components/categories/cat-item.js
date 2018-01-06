@@ -79,11 +79,11 @@ class CatItem extends React.Component {
         {renderIf(
           !this.props.catId,
           <div className='cat-item'>
+            <h3 className="name">{this.props.category.name}</h3>
             <div className='cat-details'>
-              <h3>{this.props.category.name}</h3>
-              <h3>Budget: {this.props.category.Budget}</h3>
-              <h3>Total Expenses: {this.props.category.expenses}</h3>
-              <h3>Remaining: {this.props.category.remaining}</h3>
+              <h4>Budget: {this.props.category.Budget}</h4>
+              <h4>Total Expenses: {this.props.category.expenses}</h4>
+              <h4>Remaining: {this.props.category.remaining}</h4>
               <p>{this.props.category.comments}</p>
               <button onClick={this.toggleUpdate}>Update</button>
               <button onClick={this.delete}>Delete</button>
