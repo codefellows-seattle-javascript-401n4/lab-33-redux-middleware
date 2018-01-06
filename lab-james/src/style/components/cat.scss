@@ -32,17 +32,30 @@
     border-radius: 5px;
     background: #fff;
     margin: 1em;
-    padding: 1em;
-    padding-top: 0;
-  }
-}
 
-.cat-details {
-  display: inline-block;
-  border-right: 1px solid black;
-  width: 25%;
+    .name {
+      margin: 0;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      text-align: center;
+      border-bottom: 1px solid black;
+      width: 100%;
+      background: lightblue;
+    }
 
-  h3 {
-    margin-top: .5em;
+    .cat-details {
+      float: left;
+      margin-left: 1em;
+      margin-top: 1em;
+      height: 90%;
+      display: inline-block;
+      width: 25%;
+
+      h4 {
+        margin-bottom: .5em;
+        margin-top: 0;
+      }
+    }
   }
+
 }

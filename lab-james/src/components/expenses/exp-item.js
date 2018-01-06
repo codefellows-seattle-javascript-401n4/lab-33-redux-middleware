@@ -62,10 +62,12 @@ class ExpItem extends React.Component {
     return(
       <div>
       <div className="exp-item" onDoubleClick={this.toggleUpdate}>
-        <a className="close-button" onClick={this.delete}>x</a>
-        <h5>{this.props.expense.name}</h5>
-        <h5>Amount: {this.props.expense.Amount}</h5>
-        <p>{this.props.expense.comments}</p>
+        <div className="exp-details">
+          <a className="close-button" onClick={this.delete}>x</a>
+          <h5>{this.props.expense.name}</h5>
+          <h5>Amount: {this.props.expense.Amount}</h5>
+        </div>
+        <p className="comments">{this.props.expense.comments}</p>
       </div>
       {renderIf(
         this.state.renderUpdate,
