@@ -1,0 +1,61 @@
+.cat-nav {
+  border: 1px solid black;
+  width: 13%;
+  background: white;
+  border-radius: 5px;
+  display: inline-block;
+  float: left;
+
+  .cat-nav-item {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: left;
+    margin-left: .5em;
+    margin-right: 1em;
+    cursor: pointer;
+  }
+
+  .button {
+    width: 100%;
+    cursor: pointer;
+   }
+}
+
+#cat-list {
+  display: inline-block;
+  width: 86%;
+
+  .cat-item {
+    height: 240px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background: #fff;
+    margin: 1em;
+
+    .name {
+      margin: 0;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      text-align: center;
+      border-bottom: 1px solid black;
+      width: 100%;
+      background: lightblue;
+    }
+
+    .cat-details {
+      float: left;
+      margin-left: 1em;
+      margin-top: 1em;
+      height: 90%;
+      display: inline-block;
+      width: 25%;
+
+      h4 {
+        margin-bottom: .5em;
+        margin-top: 0;
+      }
+    }
+  }
+
+}

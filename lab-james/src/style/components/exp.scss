@@ -1,0 +1,30 @@
+.expense-list {
+  display: inline-block;
+  height: 90%;
+  width: 70%;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.expense-item {
+  width: 30%;
+  border-bottom: 1px solid black;
+  margin-top: 1em;
+
+  .exp-details {
+    display: inline-block;
+    width: 5em;
+  }
+
+  .comments {
+    display: inline-block;
+    background: lightgrey;
+    width: 70%;
+    height: 100%;
+  }
+
+
+  h5 {
+    margin: 0;
+  }
+}
