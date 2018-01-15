@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test should fail because change in name of budget 1`] = `
+<div>
+  <form
+    className="catForm"
+    onSubmit={[Function]}
+  >
+    <label
+      id="catFormName"
+    >
+       Enter Your Budget Category 
+    </label>
+    <input
+      htmlFor="catFormName"
+      onChange={[Function]}
+      value=""
+    />
+    <br />
+    <label
+      id="catFormBudget"
+    >
+       Enter Your Budget Amount 
+    </label>
+    $
+    <input
+      htmlFor="catFormBudget"
+      onChange={[Function]}
+      type="number"
+      value="$0"
+    />
+    <button
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;
+
+exports[`test should fail because non unique ids 1`] = `
+<div>
+  <form
+    className="catForm"
+    onSubmit={[Function]}
+  >
+    <label
+      id="catFormName"
+    >
+       Enter Your Budget Category 
+    </label>
+    <input
+      htmlFor="catFormName"
+      onChange={[Function]}
+      value=""
+    />
+    <br />
+    <label
+      id="catFormBudget"
+    >
+       Enter Your Budget Amount 
+    </label>
+    $
+    <input
+      htmlFor="catFormBudget"
+      onChange={[Function]}
+      type="number"
+      value="$0"
+    />
+    <button
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;
+
+exports[`test should pass and snapshot has been added 1`] = `
+<div>
+  <form
+    className="catForm"
+    onSubmit={[Function]}
+  >
+    <label
+      id="catFormName"
+    >
+       Enter Your Budget Category 
+    </label>
+    <input
+      htmlFor="catFormName"
+      onChange={[Function]}
+      value=""
+    />
+    <br />
+    <label
+      id="catFormBudget"
+    >
+       Enter Your Budget Amount 
+    </label>
+    $
+    <input
+      htmlFor="catFormBudget"
+      onChange={[Function]}
+      type="number"
+      value="$0"
+    />
+    <button
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;
+
+exports[`test should pass with unique ids 1`] = `
+<div>
+  <form
+    className="catForm"
+    onSubmit={[Function]}
+  >
+    <label
+      id="catFormName"
+    >
+       Enter Your Budget Category 
+    </label>
+    <input
+      htmlFor="catFormName"
+      onChange={[Function]}
+      value=""
+    />
+    <br />
+    <label
+      id="catFormBudget"
+    >
+       Enter Your Budget Amount 
+    </label>
+    $
+    <input
+      htmlFor="catFormBudget"
+      onChange={[Function]}
+      type="number"
+      value="$0"
+    />
+    <button
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;
