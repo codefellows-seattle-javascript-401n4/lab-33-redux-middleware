@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should fail with a change of the expense name 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <label
+      id="expenseName"
+    >
+       Enter Your Expense Name 
+    </label>
+    <input
+      htmlFor="expenseName"
+      onChange={[Function]}
+      value=""
+    />
+    <br />
+    <label
+      id="expensePrice"
+    >
+       Enter Your Expense Price 
+    </label>
+    $
+    <input
+      htmlFor="expensePrice"
+      onChange={[Function]}
+      type="number"
+      value="$0"
+    />
+    <button
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;
+
+exports[`should pass with an unique id 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <label
+      id="expenseName"
+    >
+       Enter Your Expense Name 
+    </label>
+    <input
+      htmlFor="expenseName"
+      onChange={[Function]}
+      value=""
+    />
+    <br />
+    <label
+      id="expensePrice"
+    >
+       Enter Your Expense Price 
+    </label>
+    $
+    <input
+      htmlFor="expensePrice"
+      onChange={[Function]}
+      type="number"
+      value="$0"
+    />
+    <button
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;

@@ -1,0 +1,50 @@
+body {
+  background-color: white;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: inline-block;
+  background-color: #00C9B0;
+  width: 180px;
+  margin: 40px;
+  text-align: center;
+  border-radius: 3px;
+  z-index: -1;
+}
+
+.expenseLi {
+  margin-left: -40;
+  border: 1px solid black;
+  box-sizing: border-box;
+  background-color: #B7FFFF;
+}
+
+.catForm {
+  float: right;
+  font-family: Tahoma;
+  background-color: #00C9B0;
+  border-radius: 5px;
+  color: black;
+  box-sizing: border-box;
+}
+
+.header {
+  border: 1px solid black;
+  background-color: black;
+  color: #00C9B0;
+  height: 70px;
+}
+
+.siteForm {
+  margin-top: 13px;
+  height: 52px;
+  float: right;
+}
+
+.headerWords {
+  float: left;
+}
