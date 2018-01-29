@@ -1,5 +1,4 @@
-401 JS --  Lab 36 Full Stack Crud
-===
+401 JS --  Lab 33 Redux middleware
 
 #### setup:
 .env file
