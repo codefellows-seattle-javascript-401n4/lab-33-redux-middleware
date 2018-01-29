@@ -1,29 +1,18 @@
-![cf](https://i.imgur.com/7v5ASc8.png) 33: Redux Middleware
-======
+401 JS --  Lab 36 Full Stack Crud
+===
 
-## Submission Instructions
-* continue working on the fork you created from lab 26
-* open a **new branch** for today's assignment
-* upon completion, create a **new pull request** in github
-* submit a link to your PR in canvas
+#### setup:
+.env file
+- `PORT`
+- `DB_URL=mongodb://localhost:27017/visual_files_dev`
+- `API_URL=http://localhost:${PORT}/api/v1`
+- `ORIGIN_URL=http://localhost:8080`
+for mongo db:
+- create `server/db` folder
 
-## Learning Objectives
-* students will be able to create and implement custom middleware for redux
+#### to run
+- in server/: `npm start`
+- in server/ run `mongod --dbpath=/db`
+- in client/ run `npm run watch`
 
-## Requirements
-#### Configuration  
-* `README.md`
-* `.babelrc`
-* `.gitignore`
-* `package.json`
-* `webpack.config.js`
-* `src/**`
-* `src/main.js`
-* `src/style`
-* `src/style/main.scss`
-
-## Requirements  
-#### Feature Tasks
-* complete all remaining lab 26 and 27 feature tasks
-* add a reporter middleware to your application's redux store
-* add validation to your redux reducers
+open localhost:8080
