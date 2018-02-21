@@ -11,7 +11,7 @@ class ExpenseItem extends React.Component{
         {this.props.expenses[this.props.categoryId].map((expense,i) =>
           <div key={expense.id}>
             <h5>{(expense.name)}</h5>
-            <button onClick={() => this.props.expenseDelete(expense)}>X</button>
+            <button onClick={() => this.props.expenseDelete(expense)}>Delete Expense</button>
           </div>
         )}
       </div>

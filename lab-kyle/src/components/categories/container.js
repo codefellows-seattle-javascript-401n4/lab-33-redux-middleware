@@ -8,7 +8,8 @@ import CategoryItem from './category-item';
 import ExpenseForm from '../expense/expense-form';
 import ExpenseItem from '../expense/expense-item';
 
-import {categoryCreate, categoryUpdate, categoryDelete} from '../../app/actions';
+import {categoryCreate, categoryUpdate, categoryDelete} from '../../app/category-actions';
+import {expenseCreate, expenseUpdate, expenseDelete} from '../../app/expense-actions';
 
 class Categories extends React.Component {
   constructor(props){
@@ -38,8 +39,17 @@ class Categories extends React.Component {
         <div>
           {this.props.categories.map((category,i) =>
             <div key={category.id}>
-              <CategoryItem category={category} categoryDelete={this.props.categoryDelete} categoryUpdate={this.props.categoryUpdate} />
-              <ExpenseForm categoryId={category.id} expenses={this.props.expenses} onComplete={this.props.expenseCreate} expenseDelete={this.props.expenseDelete} />
+              <CategoryItem
+                category={category}
+                categoryDelete={this.props.categoryDelete}
+                categoryUpdate={this.props.categoryUpdate}
+              />
+              <ExpenseForm
+                categoryId={category.id}
+                expenses={this.props.expenses}
+                onComplete={this.props.expenseCreate}
+                expenseDelete={this.props.expenseDelete}
+              />
             </div>
           )}
         </div>

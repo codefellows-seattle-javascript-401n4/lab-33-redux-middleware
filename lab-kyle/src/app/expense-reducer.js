@@ -1,6 +1,6 @@
 const emptyState = {};
 
-export default(state=emptyState, ({type, payload}) => {
+export default(state=emptyState, {type, payload}) => {
   switch (type) {
     case 'CATEGORY_CREATE':
       return {...state, [payload.id]:[]};
@@ -26,4 +26,4 @@ export default(state=emptyState, ({type, payload}) => {
       return state;
 
   }
-})
+};

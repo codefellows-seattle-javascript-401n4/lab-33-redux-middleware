@@ -7,7 +7,7 @@ import Navbar from './navbar';
 import Footer from './footer';
 import Header from './header';
 import Home from './home';
-import Categories from './categories/category-container';
+import Container from './categories/container';
 
 class App extends React.Component {
   constructor(props){
@@ -21,7 +21,7 @@ class App extends React.Component {
 
         <main>
           <Route exact path='/' component={Home} />
-          <Route exact path='/project' component={Categories} />
+          <Route exact path='/project' component={Container} />
         </main>
 
         <Footer>

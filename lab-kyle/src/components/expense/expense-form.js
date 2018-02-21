@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ExpenseItem from './expense_item';
+import ExpenseItem from './expense-item';
 
 let emptyState = {
   name: '',
@@ -54,7 +54,11 @@ class ExpenseForm extends React.Component{
           <button type="submit">Cha-Ching</button>
         </form>
 
-        <ExpenseItem expenseDelete={this.props.expenseDelete} expenses={this.props.expenses} categoryId={this.state.categoryId} />
+        <ExpenseItem
+          expenseDelete={this.props.expenseDelete}
+          expenses={this.props.expenses}
+          categoryId={this.state.categoryId}
+        />
 
       </div>
     )

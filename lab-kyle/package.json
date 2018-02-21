@@ -1,25 +1,25 @@
 {
   "name": "lab-kyle",
   "version": "0.0.1",
-  "description": "Lab-33",
-  "main": "webpack.config.js",
+  "description": "Lab-32",
+  "main": "main.js",
   "scripts": {
-      "test": "jest -i --verbose",
-      "watch": "webpack-dev-server --inline --hot",
-      "work": "webpack-dev-server --inline --hot --public $C9_HOSTNAME --host $IP --port $PORT",
-      "build": "webpack",
-      "start": "node index.js"
+    "test": "jest -i --verbose",
+    "watch": "webpack-dev-server --inline --hot",
+    "work": "webpack-dev-server --inline --hot --public $C9_HOSTNAME --host $IP --port $PORT",
+    "build": "webpack",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/krichey15/lab-33-redux-middleware.git"
+    "url": "git+https://github.com/krichey15/lab-32-combining-reducers.git"
   },
   "author": "richey.kyle.i@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/krichey15/lab-33-redux-middleware.git/issues"
+    "url": "https://github.com/krichey15/lab-32-combining-reducers.git/issues"
   },
-  "homepage": "https://github.com/krichey15/lab-33-redux-middleware.git#readme",
+  "homepage": "https://github.com/krichey15/lab-32-combining-reducers.git#readme",
   "devDependencies": {
     "babel-jest": "^21.2.0",
     "enzyme": "^3.2.0",
@@ -30,7 +30,8 @@
     "jest-css-modules": "^1.1.0",
     "react-test-renderer": "^16.2.0"
   },
-  "Dependencies": {
+  "dependencies": {
+    "ajv": "^6.1.1",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -40,7 +41,7 @@
     "dotenv": "^4.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "eslint": "^4.17.0",
+    "eslint": "^4.18.1",
     "eslint-plugin-react": "^7.6.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
