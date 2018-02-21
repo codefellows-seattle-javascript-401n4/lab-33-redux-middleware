@@ -8,7 +8,7 @@ import {Provider} from 'react-redux';
 import App from './components/app';
 import createStore from './app/store';
 
-const store = createStore();
+let store = createStore();
 
 class Main extends React.Component {
   constructor(props){

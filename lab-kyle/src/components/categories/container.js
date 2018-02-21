@@ -11,7 +11,7 @@ import ExpenseItem from '../expense/expense-item';
 import {categoryCreate, categoryUpdate, categoryDelete} from '../../app/category-actions';
 import {expenseCreate, expenseUpdate, expenseDelete} from '../../app/expense-actions';
 
-class Categories extends React.Component {
+class Container extends React.Component {
   constructor(props){
     super(props);
   }
@@ -58,10 +58,12 @@ class Categories extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  categories: state.categories || [],
-  expenses: state.expenses || {},
-});
+const mapStateToProps = (state) => {
+  return {
+    categories: state.categories || [],
+    expenses: state.expenses || {},
+  }
+}
 
 const mapDispatchToProps = (dispatch, getState) => ({
   categoryCreate: category => dispatch(categoryCreate(category)),
@@ -71,4 +73,4 @@ const mapDispatchToProps = (dispatch, getState) => ({
   expenseDelete: expense => dispatch(expenseDelete(expense)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Categories);
+export default connect(mapStateToProps, mapDispatchToProps)(Container);

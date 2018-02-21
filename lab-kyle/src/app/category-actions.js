@@ -1,12 +1,13 @@
 import uuid from 'uuid/v4';
 
-export const categoryCreate = ({name}) => {
+export const categoryCreate = ({name, budget}) => {
   return {
     type: "CATEGORY_CREATE",
     payload: {
       id: uuid(),
       created: Date.now(),
       name,
+      budget,
     },
   };
 };

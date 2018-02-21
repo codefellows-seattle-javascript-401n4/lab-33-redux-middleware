@@ -13,7 +13,7 @@ class CategoryItem extends React.Component {
         <button onClick={()=>this.props.categoryDelete(this.props.category)}>Delete</button>
         <CategoryForm onComplete={this.props.categoryUpdate} category={this.props.category} />
       </div>
-    )
+    );
   }
 }
 export default CategoryItem
